@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bebu Random</title>
+<style>
+  /* Some basic styling */
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+    background-color: #F5F7F8;
+  }
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  img {
+    max-width: 300px;
+    height: auto;
+    margin-top: 20px;
+  }
+  audio{
+    margin: auto;
+  }
+</style>
+</head>
+<body>
+<button id="randomContentButton">Click Me</button>
+<div id="contentDisplay"></div>
+
+<audio id="audioPlayer" controls style="display: none;"></audio>
+
+<script>
+// Function to generate a random message
+function generateRandomMessage() {
+  // Array of random messages
+  var messages = [
+    "Happy Monthsary",
+    "I love you <3",
+    "Have a great day!",
+    "Coding is fun!",
+    "Stay awesome!",
+    "Thinking about you always makes me smile.",
+    "My love for you is forever timeless.",
+    "To be loved is life's greatest gift.",
+    "You are my source of joy and the whole of my heart.",
+    "With each passing day, I find myself loving you more."
+  ];
+
+  // Get a random message from the array
+  var randomIndex = Math.floor(Math.random() * messages.length);
+  var randomMessage = messages[randomIndex];
+
+  return randomMessage;
+}
+
+// Function to generate a random image
+function generateRandomImage() {
+  // Array of image URLs
+  var images = [
+    "https://yt3.googleusercontent.com/AHOOH_DO8a-ZLJ9K9lsKyKpCx6ZGfYGy9u-gR7K_932BfXaNkzwfnvqhkNecgAkjoQtA9q6UHg=s900-c-k-c0x00ffffff-no-rj",
+    "https://getbubududu.com/wp-content/uploads/2023/09/Buy-Bubu-Dudu-Plushies-1.png",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOn5FZ6WUGhn-P59nPZZd0GtBUV9ebiFDB-mWNoLIXrQ&s",
+    "https://media.tenor.com/P-VyTymrVJgAAAAe/bubu-dudu.png",
+    "https://i.etsystatic.com/42879508/r/il/5670ec/4998091039/il_570xN.4998091039_pf4a.jpg",
+    "https://res.cloudinary.com/teepublic/image/private/s--VuqNg2lS--/c_crop,x_10,y_10/c_fit,h_1109/c_crop,g_north_west,h_1260,w_1260,x_-76,y_-76/co_rgb:ffffff,e_colorize,u_Misc:One%20Pixel%20Gray/c_scale,g_north_west,h_1260,w_1260/fl_layer_apply,g_north_west,x_-76,y_-76/bo_157px_solid_white/e_overlay,fl_layer_apply,h_1260,l_Misc:Art%20Print%20Bumpmap,w_1260/e_shadow,x_6,y_6/c_limit,h_1254,w_1254/c_lpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_auto,h_630,q_auto:good:420,w_630/v1701083918/production/designs/53743929_0.jpg",
+    "https://preview.redd.it/who-came-first-bubu-dudu-or-milk-mocha-v0-xcevjtd0gp6c1.jpg?width=640&crop=smart&auto=webp&s=17419715bd3ebe35a414d047727738cce8afffa7",
+    "https://i.pinimg.com/236x/88/c5/18/88c518a6bd0b2a7982bc041bce876daa.jpg",
+    "https://image.spreadshirtmedia.com/image-server/v1/compositions/T773A1PA1607PT10X0Y2D1051206901W7497H6245/views/3,width=550,height=550,appearanceId=1,backgroundColor=FFFFFF,noPt=true/bear-and-panda-bubu-dudu-kawaii-travel-mug.jpg",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyimPge2Ul9DQis2IvX31kejOP6XfetNFlfsysjvBUSJR-fWkZp8Q2EimyaAz03DrgS4g&usqp=CAU"
+  ];
+
+  // Get a random image URL from the array
+  var randomIndex = Math.floor(Math.random() * images.length);
+  var randomImageUrl = images[randomIndex];
+
+  return randomImageUrl;
+}
+
+// Function to generate a random music
+function generateRandomMusic() {
+  // Array of music URLs
+  var musics = [
+    "music1.mp3",
+    "music2.mp3",
+    "music3.mp3",
+    "music4.mp3",
+    'music5.mp3'
+  ];
+
+  // Get a random music URL from the array
+  var randomIndex = Math.floor(Math.random() * musics.length);
+  var randomMusicUrl = musics[randomIndex];
+
+  return randomMusicUrl;
+}
+
+// Function to display random content with music when the button is clicked
+function displayRandomContent() {
+  var contentDisplay = document.getElementById("contentDisplay");
+  var randomMessage = generateRandomMessage();
+  var randomImageUrl = generateRandomImage();
+  var randomMusicUrl = generateRandomMusic();
+
+  // Create elements for the message, image, and audio player
+  var messageElement = document.createElement("p");
+  messageElement.textContent = randomMessage;
+
+  var imageElement = document.createElement("img");
+  imageElement.src = randomImageUrl;
+
+  // Clear previous content
+  contentDisplay.innerHTML = "";
+
+  // Append message and image elements to the container
+  contentDisplay.appendChild(messageElement);
+  contentDisplay.appendChild(imageElement);
+
+  // Set audio source and display audio player
+  var audioPlayer = document.getElementById("audioPlayer");
+  audioPlayer.src = randomMusicUrl;
+  audioPlayer.style.display = "block";
+  audioPlayer.play();
+}
+
+// Add event listener to the button
+document.getElementById("randomContentButton").addEventListener("click", displayRandomContent);
+</script>
+</body>
+</html>
